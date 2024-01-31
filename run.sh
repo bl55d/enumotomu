@@ -1,5 +1,41 @@
 #!/bin/bash
 
-nuclei -u $1 -silent -o nuclei-S1.txt
+cat ~/enumotomu/banner.txt
+
+mkdir enumotomu-$1
+
+# sslscan
+echo -e "sslscan start ... \c"
+if ~/./sslscan/sslscan "$1" >> "enumotomu-$1/sslscan-$1.txt"; then
+    echo " done!"
+else
+    echo " error: $?"
+fi
+
+# nikto
+echo -e "\nnikto start ... \c" 
+if ~/./nikto/program/nikto.pl -host "$1" >> "enumotomu-$1/nikto-$1.txt"; then
+    echo " done!"
+else
+    echo " error: $?"
+fi
+
+# nmap
+echo -e "\nnmap start ... \c"
+if nmap -sS "$1" -Pn >> "enumotomu-$1/nmap-$1.txt"; then
+    echo " done!"
+else
+    echo " error: $?"
+fi
+
+# nuclei
+echo -e "\nnuclei start ... \c"
+if nuclei -u "$1" --silent >> "enumotomu-$1/nuclei-$1.txt"; then
+    echo " done!"
+else
+    echo " error: $?"
+fi
+
+cho -e "\n~merci~"
 
 
