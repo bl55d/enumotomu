@@ -14,7 +14,8 @@ fi
 
 # nikto
 echo -e "\nnikto start ... \c" 
-if ~/./nikto/program/nikto.pl -host "$1" >> "enumotomu-$1/nikto-$1.txt"; then
+sed 's///g' 
+if ~/./nikto/program/nikto.pl -h "$1" >> "enumotomu-$1/nikto-$1.txt"; then
     echo " done!"
 else
     echo " error: $?"
@@ -37,5 +38,3 @@ else
 fi
 
 cho -e "\n~merci~"
-
-
