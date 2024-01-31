@@ -3,8 +3,8 @@
 One tool for All
 
 - Dirsearch
-- Check Gobuster
-- Check Nuclei
-- Check Nikto
-- Check SSLScan
-- Check Nmap
+- Gobuster
+- Nuclei
+- Nikto
+- SSLScan
+- Nmap
