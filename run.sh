@@ -19,6 +19,9 @@ cmd() {
     fi
 }
 
+# Banner
+cat banner.txt
+
 # nmap
 msg "nmap"; opf "$1" "nmap"
 cmd nmap -sS $1 -Pn
